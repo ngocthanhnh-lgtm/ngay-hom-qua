@@ -21,6 +21,7 @@
   --margin-line:none;           /* bảng đen không có lề đỏ */
   --holes:none;                 /* không có lỗ gáy */
   --hover-bg:rgba(232,184,75,.07);
+  --photo-border:#c9c3b4;      /* viền ảnh: xám ngà — trắng tinh sẽ chói trên nền tối */
 
   --shadow:0 2px 6px rgba(0,0,0,.6), 0 18px 50px rgba(0,0,0,.55);
   --pad-left:52px;

@@ -178,18 +178,42 @@ article p{margin-bottom:1.35em; font-size:1.06rem}
 article p.em{font-style:italic}      /* câu vọng lại trong đầu */
 article p.dialog{margin-left:1.2em}  /* thoại thụt vào */
 
-/* hình minh hoạ trong bài */
-.illu{margin:30px 0 34px}
-.illu img{
-  display:block; width:100%; height:auto;
-  border-radius:2px;
-  box-shadow:0 1px 3px rgba(0,0,0,.2), 0 8px 22px rgba(0,0,0,.18);
+/* ─── HÌNH MINH HOẠ — kiểu "ẢNH DÁN VỞ" ────────────────────
+   Ảnh có viền trắng dày (như ảnh in rửa), mép dưới dày hơn,
+   nghiêng nhẹ như được dán tay vào trang vở.
+
+   Ảnh trong cùng một bài nghiêng NGƯỢC CHIỀU nhau, góc lệch
+   nhau — nếu tấm nào cũng nghiêng y hệt thì lộ ra là CSS, chứ
+   không phải tay người dán.
+   ───────────────────────────────────────────────────────── */
+.illu{
+  margin:38px 0 42px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
+.illu img{
+  display:block;
+  width:92%;
+  height:auto;
+  background:var(--photo-border, #fffdf6);
+  border:10px solid var(--photo-border, #fffdf6);
+  border-bottom-width:26px;        /* mép dưới dày — chỗ ngày xưa ghi chú */
+  border-radius:1px;
+  transform:rotate(-1.2deg);
+  box-shadow:0 2px 3px rgba(0,0,0,.18), 0 10px 26px rgba(0,0,0,.16);
+}
+
+/* ảnh thứ 2 trong bài: nghiêng ngược lại, nhẹ hơn */
+.illu:nth-of-type(2) img{transform:rotate(.9deg)}
+/* ảnh thứ 3: lệch góc khác nữa */
+.illu:nth-of-type(3) img{transform:rotate(-.6deg)}
+
 .illu figcaption{
   font-family:var(--font-title);
   color:var(--faded);
   font-size:.92rem;
-  margin-top:8px;
+  margin-top:14px;
   text-align:center;
 }
 
@@ -231,4 +255,15 @@ article p.dialog{margin-left:1.2em}  /* thoại thụt vào */
   .entry-title{font-size:1.4rem}
 
   .story-head h1{font-size:2rem}
+
+  /* ảnh dán vở trên màn hình nhỏ: viền mỏng lại, nghiêng ít lại,
+     kẻo tràn mép trang */
+  .illu img{
+    width:100%;
+    border-width:6px;
+    border-bottom-width:16px;
+    transform:rotate(-.8deg);
+  }
+  .illu:nth-of-type(2) img{transform:rotate(.6deg)}
+  .illu:nth-of-type(3) img{transform:rotate(-.4deg)}
 }

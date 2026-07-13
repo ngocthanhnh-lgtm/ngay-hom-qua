@@ -20,6 +20,7 @@
   --margin-line:none;
   --holes:none;
   --hover-bg:rgba(0,0,0,.03);
+  --photo-border:#fbf9f5;      /* viền ảnh: trắng lạnh, hợp sách in */
 
   --page-w:680px;               /* trang sách hẹp hơn, đọc chậm hơn */
   --pad-left:64px;
@@ -35,5 +36,7 @@
 .masthead h1{ font-size:2.9rem; letter-spacing:.02em }
 .story-head h1{ font-size:2.2rem }
 
-/* ảnh trong bài: gần đơn sắc */
+/* ảnh trong bài: gần đơn sắc.
+   ⚠ filter áp lên cả element → viền trắng cũng bị bạc theo.
+   Bù lại bằng cách cho viền sáng hơn một chút.               */
 .illu img{ filter:saturate(.35) contrast(1.02); }

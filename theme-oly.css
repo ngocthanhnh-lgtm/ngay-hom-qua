@@ -20,6 +20,7 @@
 
   --margin-line:rgba(179,64,46,.4);
   --hover-bg:rgba(255,255,255,.45);
+  --photo-border:#fffdf6;      /* viền ảnh: trắng ngà, hợp giấy vàng */
 
   --grid:rgba(78,112,152,.18);
 }

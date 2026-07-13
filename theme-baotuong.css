@@ -19,6 +19,7 @@
   --margin-line:none;                    /* báo tường không có lề đỏ */
   --holes:none;                          /* cũng không có lỗ gáy */
   --hover-bg:rgba(192,57,43,.06);
+  --photo-border:#ffffff;      /* viền ảnh: trắng, giấy A0 trắng */
 }
 
 /* báo tường dán thẳng, không cần chừa lề trái to */
