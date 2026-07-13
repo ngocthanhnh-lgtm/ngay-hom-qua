@@ -1,0 +1,234 @@
+/* ═══════════════════════════════════════════════════════════
+   ngày hôm qua — base.css
+   KHUNG XƯƠNG CHUNG. Dùng cho MỌI da.
+
+   ⚠ LUẬT: file này KHÔNG chứa màu cụ thể, KHÔNG chứa hoa văn.
+   Nó chỉ chứa: layout, cỡ chữ, khoảng cách, hành vi.
+   Mọi thứ nhìn-thấy-được đều đi qua BIẾN (--ten-bien).
+   Muốn đổi màu / font / hoa văn → sửa file theme-*.css,
+   ĐỪNG đụng vào đây.
+   ═══════════════════════════════════════════════════════════ */
+
+
+/* ─── 1. BIẾN MẶC ĐỊNH ───────────────────────────────────────
+   Theme sẽ ghi đè các biến này. Giá trị ở đây chỉ là dự phòng,
+   để lỡ quên nạp theme thì trang vẫn đọc được.
+   ─────────────────────────────────────────────────────────── */
+:root{
+  /* màu */
+  --desk:#63523e;        /* nền ngoài — mặt bàn */
+  --paper:#f8f2df;       /* nền trang giấy */
+  --ink:#22456b;         /* màu chữ thân bài */
+  --char:#3b3b3b;        /* màu tiêu đề */
+  --red:#b3402e;         /* màu nhấn: lề, hover, link */
+  --faded:#6f6a5c;       /* màu chữ phụ: tagline, nav, caption */
+  --line:rgba(59,59,59,.28);   /* màu đường kẻ đứt */
+
+  /* font */
+  --font-title:'Itim',cursive;          /* masthead + tiêu đề */
+  --font-body:'Lora',Georgia,serif;     /* thân bài */
+
+  /* hình khối */
+  --page-w:760px;        /* bề ngang trang giấy */
+  --pad-left:96px;       /* lề trái (chừa chỗ cho lề đỏ + lỗ gáy) */
+  --pad-right:44px;
+  --radius:3px;
+  --shadow:0 2px 4px rgba(0,0,0,.35), 0 14px 40px rgba(0,0,0,.35);
+}
+
+
+/* ─── 2. RESET + NỀN ────────────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  background:var(--desk);
+  font-family:var(--font-body);
+  color:var(--ink);
+  line-height:1.85;
+  padding:18px 10px 40px;
+}
+
+
+/* ─── 3. TRANG GIẤY ─────────────────────────────────────────── */
+.page{
+  max-width:var(--page-w);
+  margin:0 auto;
+  background:var(--paper);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:0 var(--pad-right) 64px var(--pad-left);
+  position:relative;
+  overflow:hidden;
+}
+
+/* Lớp hoa văn nền. base.css chỉ ĐẶT CHỖ; theme quyết định
+   vẽ cái gì lên đó (ô ly, thớ giấy kraft, phấn bảng...).
+   Theme nào không cần thì để trống — nó tàng hình.          */
+.texture{
+  position:absolute; top:0; left:0; right:0;
+  height:250px;
+  pointer-events:none;
+}
+
+/* Lề đỏ + lỗ gáy: theme bật/tắt bằng cách set --rule-x / --holes-x
+   thành `none`. Xem ghi chú trong theme-oly.css.            */
+.page::before{  /* lề đỏ dọc */
+  content:'';
+  position:absolute; top:0; bottom:0;
+  left:70px; width:2px;
+  background:var(--margin-line, rgba(179,64,46,.4));
+}
+.page::after{   /* lỗ gáy */
+  content:'';
+  position:absolute; top:40px; bottom:40px;
+  left:26px; width:14px;
+  background-image:var(--holes, radial-gradient(circle 7px, rgba(0,0,0,.16) 6px, transparent 7px));
+  background-size:14px 90px;
+  background-repeat:repeat-y;
+}
+
+
+/* ─── 4. MASTHEAD (chỉ ở trang chủ) ─────────────────────────── */
+.masthead{position:relative; padding:64px 0 34px}
+.masthead h1{
+  font-family:var(--font-title);
+  font-weight:400;
+  font-size:3.6rem;
+  color:var(--char);
+  line-height:1.05;
+  letter-spacing:.01em;
+}
+.masthead .tagline{
+  font-style:italic;
+  color:var(--faded);
+  margin-top:8px;
+  font-size:1.05rem;
+}
+
+.rule{border:0; border-top:1.5px dashed var(--line); margin:0 0 8px}
+
+
+/* ─── 5. MỤC LỤC (trang chủ) ───────────────────────────────── */
+.toc{margin-top:26px}
+
+.entry{
+  display:flex; gap:22px; align-items:center;
+  padding:22px 10px 22px 0;
+  border-bottom:1px dashed var(--line);
+  text-decoration:none; color:inherit;
+  transition:background .18s ease;
+}
+.entry:hover{background:var(--hover-bg, rgba(255,255,255,.45))}
+.entry:hover .entry-title{color:var(--red)}
+
+.entry-thumb{
+  flex:0 0 116px; height:116px;
+  overflow:hidden; border-radius:2px;
+  box-shadow:0 1px 2px rgba(0,0,0,.2), 0 4px 12px rgba(0,0,0,.14);
+}
+.entry-thumb img{
+  width:100%; height:100%;
+  object-fit:cover; display:block;
+  transition:transform .5s ease;
+}
+.entry:hover .entry-thumb img{transform:scale(1.05)}
+
+.entry-title{
+  font-family:var(--font-title);
+  font-size:1.75rem;
+  color:var(--char);
+  line-height:1.25;
+  transition:color .18s ease;
+}
+
+/* chỗ trống chờ bài sau — xoá khi đủ bài */
+.entry.blank{opacity:.42; pointer-events:none}
+.entry.blank .entry-thumb{
+  background:var(--hover-bg, rgba(255,255,255,.5));
+  border:1.5px dashed var(--line);
+  box-shadow:none;
+}
+.entry.blank .entry-title{font-size:1.35rem; color:var(--faded)}
+
+
+/* ─── 6. TRANG BÀI ─────────────────────────────────────────── */
+
+/* thanh về trang chủ — nhỏ, không tranh chỗ với tên bài */
+.backbar{padding:34px 0 0}
+.backbar a{
+  font-family:var(--font-title);
+  color:var(--faded);
+  text-decoration:none;
+  font-size:1rem;
+  transition:color .18s ease;
+}
+.backbar a:hover{color:var(--red)}
+
+.story-head{margin:20px 0 30px}
+.story-head h1{
+  font-family:var(--font-title);
+  font-weight:400;
+  font-size:2.6rem;
+  color:var(--char);
+  line-height:1.2;
+}
+
+article{max-width:62ch}
+article p{margin-bottom:1.35em; font-size:1.06rem}
+article p.em{font-style:italic}      /* câu vọng lại trong đầu */
+article p.dialog{margin-left:1.2em}  /* thoại thụt vào */
+
+/* hình minh hoạ trong bài */
+.illu{margin:30px 0 34px}
+.illu img{
+  display:block; width:100%; height:auto;
+  border-radius:2px;
+  box-shadow:0 1px 3px rgba(0,0,0,.2), 0 8px 22px rgba(0,0,0,.18);
+}
+.illu figcaption{
+  font-family:var(--font-title);
+  color:var(--faded);
+  font-size:.92rem;
+  margin-top:8px;
+  text-align:center;
+}
+
+/* dấu ngắt đoạn giữa bài */
+.sep{
+  text-align:center;
+  color:var(--faded);
+  letter-spacing:.6em;
+  margin:34px 0;
+  font-size:1rem;
+}
+
+/* đóng bài */
+.endmark{
+  margin-top:52px; padding-top:20px;
+  border-top:1.5px dashed var(--line);
+  font-family:var(--font-title);
+  color:var(--faded);
+}
+.endmark a{color:var(--faded); text-decoration:none; transition:color .18s ease}
+.endmark a:hover{color:var(--red)}
+
+
+/* ─── 7. MÀN HÌNH NHỎ ──────────────────────────────────────── */
+@media(max-width:620px){
+  :root{
+    --pad-left:58px;
+    --pad-right:20px;
+  }
+  .page{padding:0 var(--pad-right) 52px var(--pad-left)}
+  .page::before{left:42px}
+  .page::after{left:14px}
+
+  .masthead{padding:44px 0 26px}
+  .masthead h1{font-size:2.5rem}
+
+  .entry{gap:16px; padding:18px 0}
+  .entry-thumb{flex:0 0 84px; height:84px}
+  .entry-title{font-size:1.4rem}
+
+  .story-head h1{font-size:2rem}
+}

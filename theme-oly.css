@@ -1,0 +1,35 @@
+/* ═══════════════════════════════════════════════════════
+   DA: Ô LY  ·  tông NẮNG
+   Dùng cho: chuyện ban ngày, chơi bời, phần lớn truyện.
+   Vở ô ly học trò — ô ly chỉ ở dải đầu trang rồi mờ dần,
+   vùng đọc là giấy trơn (đọc lâu không mỏi).
+   ═══════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root{
+  --desk:#63523e;
+  --paper:#f8f2df;
+  --ink:#22456b;
+  --char:#3b3b3b;
+  --red:#b3402e;
+  --faded:#6f6a5c;
+  --line:rgba(59,59,59,.28);
+
+  --font-title:'Itim',cursive;
+  --font-body:'Lora',Georgia,serif;
+
+  --margin-line:rgba(179,64,46,.4);
+  --hover-bg:rgba(255,255,255,.45);
+
+  --grid:rgba(78,112,152,.18);
+}
+
+/* hoa văn: lưới ô ly, mờ dần xuống dưới */
+.texture{
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size:28px 28px;
+  -webkit-mask-image:linear-gradient(#000 55%, transparent);
+          mask-image:linear-gradient(#000 55%, transparent);
+}

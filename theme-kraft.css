@@ -1,0 +1,31 @@
+/* ═══════════════════════════════════════════════════════
+   DA: KRAFT  ·  sổ tay giấy bồi
+   Dùng cho: chuyện đời thường, ghi chép, tông trung tính.
+   ═══════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root{
+  --desk:#4a4038;
+  --paper:#d9c4a3;
+  --ink:#3c3025;
+  --char:#2e2620;
+  --red:#8c4a2f;
+  --faded:#6d5c48;
+  --line:rgba(60,48,37,.3);
+
+  --font-title:'Itim',cursive;
+  --font-body:'Lora',Georgia,serif;
+
+  --margin-line:rgba(140,74,47,.35);
+  --hover-bg:rgba(255,255,255,.28);
+}
+
+/* hoa văn: thớ giấy bồi lấm tấm */
+.texture{
+  height:100%;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(120,90,60,.07) 1px, transparent 2px),
+    radial-gradient(circle at 70% 60%, rgba(120,90,60,.06) 1px, transparent 2px),
+    radial-gradient(circle at 45% 85%, rgba(120,90,60,.05) 1px, transparent 2px);
+  background-size:60px 60px, 90px 90px, 45px 45px;
+}

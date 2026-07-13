@@ -1,0 +1,39 @@
+/* ═══════════════════════════════════════════════════════
+   DA: SÁCH  ·  tông XÁM
+   Dùng cho: chuyện buồn, chia ly, có người dọn đi,
+   những nhịp 2026 nhìn lại. Gần đơn sắc, ít màu.
+   ═══════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root{
+  --desk:#5a5754;
+  --paper:#f1eee7;
+  --ink:#3a3937;
+  --char:#2a2927;
+  --red:#7a6a5c;                /* nhấn xám nâu, không rực */
+  --faded:#8a857e;
+  --line:rgba(58,57,55,.22);
+
+  --font-title:'Lora',Georgia,serif;   /* sách in: tiêu đề cũng serif */
+  --font-body:'Lora',Georgia,serif;
+
+  --margin-line:none;
+  --holes:none;
+  --hover-bg:rgba(0,0,0,.03);
+
+  --page-w:680px;               /* trang sách hẹp hơn, đọc chậm hơn */
+  --pad-left:64px;
+  --pad-right:64px;
+  --shadow:0 1px 3px rgba(0,0,0,.25), 0 10px 30px rgba(0,0,0,.2);
+}
+@media(max-width:620px){ :root{ --pad-left:26px; --pad-right:26px; } }
+
+/* sách in thì không hoa văn — giấy trơn */
+.texture{ display:none }
+
+/* tiêu đề sách in: nhỏ hơn, trang trọng hơn */
+.masthead h1{ font-size:2.9rem; letter-spacing:.02em }
+.story-head h1{ font-size:2.2rem }
+
+/* ảnh trong bài: gần đơn sắc */
+.illu img{ filter:saturate(.35) contrast(1.02); }

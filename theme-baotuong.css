@@ -1,0 +1,35 @@
+/* ═══════════════════════════════════════════════════════
+   DA: BÁO TƯỜNG  ·  giấy A0 dán tường, mực màu
+   Dùng cho: chuyện náo nhiệt, tập thể, cả đám cùng quậy.
+   ═══════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root{
+  --desk:#5c6b58;
+  --paper:#fdfaf0;
+  --ink:#2f3a52;
+  --char:#1f2937;
+  --red:#c0392b;
+  --faded:#6b7280;
+  --line:rgba(31,41,55,.25);
+
+  --font-title:'Itim',cursive;
+  --font-body:'Lora',Georgia,serif;
+
+  --margin-line:none;                    /* báo tường không có lề đỏ */
+  --holes:none;                          /* cũng không có lỗ gáy */
+  --hover-bg:rgba(192,57,43,.06);
+}
+
+/* báo tường dán thẳng, không cần chừa lề trái to */
+:root{ --pad-left:52px; }
+@media(max-width:620px){ :root{ --pad-left:24px; } }
+
+/* hoa văn: đường kẻ ngang mờ, như giấy kẻ ô lớn */
+.texture{
+  height:100%;
+  background-image:linear-gradient(rgba(47,58,82,.06) 1px, transparent 1px);
+  background-size:100% 34px;
+  -webkit-mask-image:linear-gradient(#000 30%, transparent 90%);
+          mask-image:linear-gradient(#000 30%, transparent 90%);
+}
