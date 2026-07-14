@@ -3,8 +3,17 @@
    Dùng cho: chuyện ban ngày, chơi bời, phần lớn truyện.
    Vở ô ly học trò — ô ly chỉ ở dải đầu trang rồi mờ dần,
    vùng đọc là giấy trơn (đọc lâu không mỏi).
+
+   ⚠ SỬA 13/07/2026 — LỖI FONT TIẾNG VIỆT:
+   Font cũ là ITIM (font Thái). Nó KHÔNG CÓ bảng chữ Việt đầy
+   đủ — mấy chữ hai dấu (ỗ ẫ ễ ộ ợ ự...) bị trình duyệt tự
+   ghép dấu, ghép TRẬT. Chữ "lỗ" trong tiêu đề bài 04 lộ ra.
+   → Đổi sang PATRICK HAND: cũng nét viết tay, mà CÓ VIETNAMESE.
+   → Và thêm &subset=vietnamese vào @import.
+   ⚠ BỐN FILE THEME KIA (bangden/baotuong/kraft/sach) NẾU CŨNG
+     DÙNG ITIM THÌ PHẢI SỬA Y HỆT.
    ═══════════════════════════════════════════════════════ */
-@import url('https://fonts.googleapis.com/css2?family=Itim&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Lora:ital,wght@0,400;0,600;1,400&display=swap&subset=vietnamese,latin,latin-ext');
 
 :root{
   --desk:#63523e;
@@ -15,7 +24,7 @@
   --faded:#6f6a5c;
   --line:rgba(59,59,59,.28);
 
-  --font-title:'Itim',cursive;
+  --font-title:'Patrick Hand',cursive;
   --font-body:'Lora',Georgia,serif;
 
   --margin-line:rgba(179,64,46,.4);
